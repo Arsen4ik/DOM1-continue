@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.card {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 0 5px 0 rgb(75, 75, 75);
+    /* display: grid; */
+    gap: 10px;
+    align-content: stretch;
+    box-sizing: border-box;
+}
+h3, p {
+    margin: 0;
+
+}
+.card p {
+    align-self: flex-start;
+}
+.age {
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+/* .adres {
+    width: 100;
+
+} */
+
+.num1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
