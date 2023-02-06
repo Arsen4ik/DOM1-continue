@@ -4,7 +4,7 @@ let users = [{"id":1,"firstname":"Dean","lastname":"Herzog","email":"nnicolas@st
 // console.log(users.length)
 
 class Persons {
-    constructor(obj,adres){
+    constructor(obj){
         this.id = obj.id
         this.firstname = obj.firstname
         this.lastname = obj.lastname
@@ -12,7 +12,7 @@ class Persons {
         this.phone = obj.phone
         this.age = new Date().getFullYear() - new Date(obj.birthday).getFullYear()
         this.gender = obj.gender
-        this.address = adres
+        this.address = obj.address
         this.bg = getColor(30)
         this.cl = getColor(100)
     }
@@ -21,9 +21,9 @@ class Persons {
 let data = [];
 for(let i = 0; i < users.length; i++){
     let human = users[i] 
-    let adres = Object.entries(users[i].address).toString().replace(",", ", ")
+    // let adres = Object.entries(users[i].address)
     // console.log(adres)
-    data.push(new Persons(human,adres))
+    data.push(new Persons(human))
 }
 // console.log(data)
 
@@ -33,22 +33,23 @@ for(let val of data){
     html += `
     <div class="card" style="background-color: ${val.bg}; color: ${val.cl}">
     <div class="num1">
-    <h1>${val.id}</h1>
-    <h3>${val.firstname} ${val.lastname}</h3>
-    <h3>${val.age} y.o.</h3>
+    <div><div>${val.id}</div></div>
+    <div>${val.firstname} ${val.lastname}</div>
+    <div>${val.age} y.o.</div>
     </div>
-    <div>
+    <div class="num2">
+    <div class="datas">
     <p>${val.email}</p>
     <p>${val.phone}</p>
     <p>${val.gender}</p>
     </div>
     <div class="adres">
-    <p>
-    ${val.address}
-    </p>
+    <p>${val.address.buildingNumber}-${val.address.city}-${val.address.country}</p>
+    </div>
+    <div class="img"></div>
     </div>
     </div>
     `
-    console.log(val.address)
+    // console.log(val.address)
 }
 document.body.innerHTML += html
